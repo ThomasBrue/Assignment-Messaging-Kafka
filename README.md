@@ -1,12 +1,20 @@
-# Kafka NodeJS Example
+# Assignment: Messaging
 
 ## Introduction
-This repository showcases a simple example of using Kafka with NodeJS. In this example the producer push a testing message onto the test_topic (in Kafka) while the consumer consumes the message and print it.
 
-## Instructions
-This demonstration assumes you already have `docker` and `docker-compose` installed. The steps are as follows:
+This repository showcases an apache-kafka example project.
 
-1) Using `docker-compose`, spin up all containers (Zookeeper, Kafka, Producer and Consumer):
-```
-docker-compose up
-```
+It consists of three services:
+
+1. p-core-banking-system
+2. cp-money-laundering
+3. c-transaction-analytics
+
+## How to run?
+
+1. `docker-compose build`
+2. `docker-compose up`
+
+## Expected output
+
+After running the `docker-compose up` command you should see that ever three seconds there is a log from each service.
