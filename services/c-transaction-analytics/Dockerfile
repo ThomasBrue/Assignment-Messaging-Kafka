@@ -4,4 +4,4 @@ USER node
 COPY package*.json ./
 RUN npm install
 COPY --chown=node:node . .
-CMD ["node", "src/consumer.js"]
+CMD ["node", "src/c-transaction-analytics.js"]

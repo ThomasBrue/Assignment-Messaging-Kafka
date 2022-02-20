@@ -16,16 +16,23 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       # - KAFKA_CREATE_TOPICS=test_topic:1:1
 
-  producer:
-    build: ./services/producer
+  p-core-banking-system:
+    build: ./services/p-core-banking-system
     restart: unless-stopped
     ports: ["8080:8080"]
     environment:  
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 
      
-  consumer:
-    build: ./services/consumer
+  cp-money-laundering:
+    build: ./services/cp-money-laundering
     restart: unless-stopped
     ports: ["8081:8081"]
+    environment: 
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 
+
+  c-transaction-analytics:
+    build: ./services/c-transaction-analytics
+    restart: unless-stopped
+    ports: ["8082:8082"]
     environment: 
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 

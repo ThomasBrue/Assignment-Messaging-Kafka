@@ -1,12 +1,12 @@
 {
-  "name": "kafka-nodejs-example-producer",
+  "name": "p-core-banking-system-service",
   "version": "1.0.0",
-  "description": "A kafka producer that also acts as a web server.",
-  "author": "Anthony Hastings <ar.hastings@gmail.com> (https://antwan1986.github.io/)",
+  "description": "A core-banking service publishes payments into a payment topic.",
+  "author": "Thomas Bruendl",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node producer.js"
+    "start": "node ./src/p-core-banking-system.js"
   },
   "dependencies": {
     "avsc": "5.3.1",

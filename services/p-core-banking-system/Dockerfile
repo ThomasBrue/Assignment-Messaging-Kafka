@@ -4,4 +4,4 @@ USER node
 COPY package*.json ./
 RUN npm install
 COPY --chown=node:node . .
-CMD ["node", "src/producer.js"]
+CMD ["node", "src/p-core-banking-system.js"]
