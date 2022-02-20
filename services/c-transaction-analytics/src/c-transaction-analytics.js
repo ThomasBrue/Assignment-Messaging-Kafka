@@ -8,11 +8,13 @@ const consumer = new kafka.Consumer(client, [
 consumer.on("message", async function (resp) {
   message = JSON.parse(resp.value);
 
+  console.log(resp);
+
   if (message && message.amount) {
-    if (message.amount > 1000) {
+    if (message.paymentStatus == "DECLINE") {
       console.log("EXECUTE_DECLINE: ", message.amount);
-    } else if (message.amount <= 1000) {
-      console.log("EXECUTE_PASS: ", message.amount);
+    } else if (message.paymentStatus == "ACCEPT") {
+      console.log("EXECUTE_ACCEPT: ", message.amount);
     }
   }
 });

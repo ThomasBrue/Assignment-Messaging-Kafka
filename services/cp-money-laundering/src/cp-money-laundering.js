@@ -8,17 +8,15 @@ const consumer = new kafka.Consumer(client, [
 const producer = new kafka.Producer(client);
 
 consumer.on("message", async function (resp) {
-  // resp = JSON.parse(resp);
-  console.log("----- [consumer] -----------------------------");
-  console.log(resp);
-
   message = JSON.parse(resp.value);
 
   if (message && message.amount) {
     if (message.amount > 1000) {
+      message.paymentStatus = "DECLINE";
       console.log("DECLINE: ", message.amount);
     } else if (message.amount <= 1000) {
-      console.log("PASS: ", message.amount);
+      message.paymentStatus = "ACCEPT";
+      console.log("ACCEPT: ", message.amount);
     }
   }
 
@@ -30,7 +28,6 @@ consumer.on("message", async function (resp) {
   ];
 
   producer.send(payload, function (error, result) {
-    console.log("Sending LaunderyCheck-payload to Kafka");
     if (error) {
       console.log("Sending payload failed: ", error);
     } else {
@@ -38,3 +35,5 @@ consumer.on("message", async function (resp) {
     }
   });
 });
+
+

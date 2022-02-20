@@ -18,14 +18,12 @@ setInterval(() => {
       messages: JSON.stringify({
         messageId: `id_${messageId++}`,
         amount: rndInt,
+        paymentStatus: null,
       }),
     },
   ];
 
   producer.send(payload, function (error, result) {
-    console.log("----- [producer] -----------------------------");
-
-    console.log("Sending Payments-payload to Kafka");
     if (error) {
       console.log("Sending payload failed: ", error);
     } else {
