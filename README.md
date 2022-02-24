@@ -1,5 +1,7 @@
 # Assignment: Messaging
 
+https://github.com/ThomasBrue/Assignment-Messaging-Kafka
+
 ## Introduction
 
 This repository showcases an apache-kafka example project.
